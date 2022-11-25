@@ -1,12 +1,15 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import express, { json, urlencoded } from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import { config } from "dotenv";
+
+config();
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // support encoded bodies
+app.use(json());
+app.use(urlencoded({ extended: true })); // support encoded bodies
 app.use(cors());
-const PORT = 3000;
+const PORT = process.env.PORT || 5000;
 
 // const { initialiseDBConnection } = require("./db/db.connect.js");
 
@@ -19,8 +22,8 @@ app.get("/", (req, res) => {
   res.send("Hello Express app!");
 });
 
-const routeNotFoundHandler = require("./middlewares/route-not-found.middlerware");
-const allErrorsHandler = require("./middlewares/all-errors-handler.middleware");
+import routeNotFoundHandler from "./middlewares/route-not-found.middlerware.js";
+import allErrorsHandler from "./middlewares/all-errors-handler.middleware.js";
 
 /**
  * 404 Route Handler

@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "backend for the ecommerce application",
   "main": "index.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"node ./index",
     "dev":"nodemon ./index"
   },
+
   "author": "Partha Sarma",
   "license": "ISC",
   "dependencies": {
