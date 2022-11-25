@@ -1,9 +1,9 @@
 import express, { json, urlencoded } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import { config } from "dotenv";
+import dotenv from "dotenv";
 
-config();
+dotenv.config();
 
 const app = express();
 app.use(json());
@@ -11,9 +11,9 @@ app.use(urlencoded({ extended: true })); // support encoded bodies
 app.use(cors());
 const PORT = process.env.PORT || 5000;
 
-// const { initialiseDBConnection } = require("./db/db.connect.js");
+import { initialiseDBConnection } from "./db/db.connect.js";
 
-// initialiseDBConnection();
+initialiseDBConnection();
 
 // const products = require("./routes/products.router");
 // app.use("/products", products);
