@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+const { Schema } = mongoose;
 
 const cartSchema = new mongoose.Schema({
   userId: { type: Schema.Types.ObjectId, ref: "User" },

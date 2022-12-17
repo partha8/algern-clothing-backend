@@ -11,21 +11,9 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-const colorSchema = new mongoose.Schema({
-  color: {
-    type: String,
-  },
-});
-
-const sizeSchema = new mongoose.Schema({
-  size: {
-    type: String,
-  },
-});
-
 const productSchema = new mongoose.Schema(
   {
-    user: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
@@ -42,6 +30,7 @@ const productSchema = new mongoose.Schema(
 
     image: {
       type: String,
+      alt: String,
       required: true,
     },
 
@@ -55,15 +44,34 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
 
-    colors: [colorSchema],
-    sizes: [sizeSchema],
+    // colors: [],
+    color: {
+      type: String,
+      required: true,
+    },
+
+    sizes: [
+      {
+        type: String,
+      },
+    ],
 
     inStock: {
       type: Boolean,
       default: true,
     },
 
+    rating: {
+      type: Number,
+      required: true,
+    },
+
     reviews: [reviewSchema],
+
+    price: {
+      type: Number,
+      required: true,
+    },
 
     offer: {
       type: Number,

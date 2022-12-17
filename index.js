@@ -15,8 +15,8 @@ import { initialiseDBConnection } from "./db/db.connect.js";
 
 initialiseDBConnection();
 
-// const products = require("./routes/products.router");
-// app.use("/products", products);
+import products from './routes/products.router.js'
+app.use("/products", products);
 
 app.get("/", (req, res) => {
   res.send("Hello Express app!");
