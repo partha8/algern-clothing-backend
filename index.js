@@ -18,6 +18,9 @@ initialiseDBConnection();
 import products from "./routes/products.router.js";
 app.use("/products", products);
 
+import categories from "./routes/categories.router.js";
+app.use("/categories", categories);
+
 import auth from "./routes/auth.router.js";
 app.use("/auth", auth);
 
