@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
 
-    category: {
+    categoryName: {
       type: String,
       required: true,
     },
