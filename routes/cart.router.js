@@ -22,7 +22,7 @@ router.route("/").get(authVerify, async (req, res) => {
       path: "products.productId",
     });
 
-    res.status(200).json({ cart });
+    res.status(200).json({ cart: cart.products });
   } catch (error) {
     console.error(error);
     res.status(500).json({
@@ -96,7 +96,7 @@ router.route("/").post(authVerify, async (req, res) => {
       path: "products.productId",
     });
 
-    res.status(200).json({ cart: updatedCartFromDB });
+    res.status(200).json({ cart: updatedCartFromDB.products });
   } catch (error) {
     console.error(error);
     res.status(500).json({
