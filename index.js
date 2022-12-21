@@ -15,9 +15,17 @@ import { initialiseDBConnection } from "./db/db.connect.js";
 
 initialiseDBConnection();
 
-import products from './routes/products.router.js'
+import products from "./routes/products.router.js";
 app.use("/products", products);
 
+import auth from "./routes/auth.router.js";
+app.use("/auth", auth);
+
+import wishList from "./routes/wishlist.router.js";
+app.use("/wishlist", wishList);
+
+import cart from "./routes/cart.router.js";
+app.use("/cart", cart);
 app.get("/", (req, res) => {
   res.send("Hello Express app!");
 });

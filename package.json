@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "backend for the ecommerce application",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node ./index",
-    "dev":"nodemon ./index",
-    "data:import" : "node seeder"
+    "start": "node ./index",
+    "dev": "nodemon ./index",
+    "data:import": "node seeder"
   },
-
   "author": "Partha Sarma",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
