@@ -32,6 +32,7 @@ app.use("/user", user);
 
 import cart from "./routes/cart.router.js";
 app.use("/cart", cart);
+
 app.get("/", (req, res) => {
   res.send("Hello Express app!");
 });

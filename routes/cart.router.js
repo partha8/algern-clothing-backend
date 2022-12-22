@@ -49,7 +49,7 @@ router.route("/").post(authVerify, async (req, res) => {
     if (body.action) {
       if (body.action.type === "increment") {
         cart.products = cart.products.map((product) => {
-          if (product.productId) {
+          if (product.productId == body._id) {
             product.quantity = product.quantity + 1;
             return product;
           }
@@ -58,7 +58,7 @@ router.route("/").post(authVerify, async (req, res) => {
       }
       if (body.action.type === "decrement") {
         cart.products = cart.products.map((product) => {
-          if (product.productId) {
+          if (product.productId == body._id) {
             if (product.quantity == 1) {
               removeItem = true;
               return product;
@@ -80,8 +80,6 @@ router.route("/").post(authVerify, async (req, res) => {
       (isProductAlreadyAdded && !body.action) ||
       (isProductAlreadyAdded && body.action.type == "decrement" && removeItem)
     ) {
-      console.log("inside if, cart route");
-
       cart.products = cart.products.filter(
         (product) => product.productId != body._id
       );
