@@ -27,6 +27,9 @@ app.use("/auth", auth);
 import wishList from "./routes/wishlist.router.js";
 app.use("/wishlist", wishList);
 
+import user from "./routes/user.router.js";
+app.use("/user", user);
+
 import cart from "./routes/cart.router.js";
 app.use("/cart", cart);
 app.get("/", (req, res) => {
