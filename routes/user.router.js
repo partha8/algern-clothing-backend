@@ -41,7 +41,9 @@ router.route("/address").post(authVerify, async (req, res) => {
     }
 
     let updatedUser = await foundUser.save();
-    res.status(200).json({ foundUser: updatedUser });
+    res
+      .status(200)
+      .json({ foundUser: updatedUser, encodedToken: user.encodedToken });
   } catch (error) {
     console.error(error);
     return res.status(error.status).send({ message: error.message });
