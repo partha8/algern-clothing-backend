@@ -25,11 +25,11 @@ router.route("/address").post(authVerify, async (req, res) => {
 
     const foundUser = await User.findById({ _id: user._id });
 
-    if (body.action.type === "delete") {
+    if (body.action && body.action.type === "delete") {
       foundUser.addresses = foundUser.addresses.filter(
         (address) => address._id != body.address._id
       );
-    } else if (body.action.type === "edit") {
+    } else if (body.action && body.action.type === "edit") {
       foundUser.addresses = foundUser.addresses.map((address) => {
         if (address._id == body.address._id) {
           return { ...body.address };
