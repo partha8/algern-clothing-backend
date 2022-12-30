@@ -17,7 +17,6 @@ export const fulfillOrder = async (status, id) => {
           console.log(error.message);
           res.status(500).send({ message: error.message });
         } else {
-
           Cart.findOneAndUpdate(
             { userId: data.userId },
             { products: [] },
@@ -70,8 +69,8 @@ router.route("/create-checkout-session").post(authVerify, async (req, res) => {
       }),
 
       mode: "payment",
-      success_url: "http://localhost:3000/success",
-      cancel_url: "http://localhost:3000/declined",
+      success_url: "https://algern-clothing-react.netlify.app/success",
+      cancel_url: "https://algern-clothing-react.netlify.app/declined",
     });
 
     let order = new Order({
