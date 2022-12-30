@@ -6,38 +6,22 @@ const orderSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       ref: "User",
-      required: "user id is required",
+      required: true,
     },
-    payment: {
-      mrp: { type: Number, default: 0 },
-      discount: { type: Number, default: 0 },
-      couponDiscount: { type: Number, default: 0 },
-      totalPaid: { type: Number, default: 0 },
-      charges: {
-        shipping: {
-          type: Number,
-          default: 0,
-        },
-        gst: {
-          type: Number,
-          default: 0,
-        },
-      },
-    },
-    items: [
-      {
-        productId: { type: Schema.Types.ObjectId, ref: "Product" },
-        payment: {
-          amount: { type: Number, default: 0 },
-          offer: { type: Number, default: 0 },
-        },
-        quantity: { type: Number, default: 1 },
-      },
-    ],
+    paymentId: String,
+    payment_status: String,
     address: {
       type: String,
-      required: "address id is required",
+      required: true,
     },
+    total_paid: Number,
+    items: [
+      {
+        name: String,
+        unit_price: Number,
+        quantity: Number,
+      },
+    ],
   },
   { timestamps: true }
 );
