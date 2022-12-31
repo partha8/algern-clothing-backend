@@ -41,7 +41,7 @@ export const fulfillOrder = async (status, id) => {
 router.route("/").get(authVerify, async (req, res) => {
   try {
     const { user } = req;
-    let orders = await Order.find({ userId: user._id });
+    let orders = await Order.find({ userId: user._id }).sort({ createdAt: -1 });
     if (!orders) {
       res.status(200).json({ orders: [] });
     } else {
