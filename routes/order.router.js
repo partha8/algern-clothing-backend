@@ -38,6 +38,23 @@ export const fulfillOrder = async (status, id) => {
   }
 };
 
+router.route("/").get(authVerify, async (req, res) => {
+  try {
+    const { user } = req;
+    let orders = await Order.find({ userId: user._id });
+    if (!orders) {
+      res.status(200).json({ orders: [] });
+    } else {
+      res.status(200).json({ orders });
+    }
+  } catch (error) {
+    res.status(500).json({
+      message: "Request failed please check errorMessage key for more details",
+      errorMessage: error.message,
+    });
+  }
+});
+
 router.route("/create-checkout-session").post(authVerify, async (req, res) => {
   try {
     const { user } = req;
